@@ -9,6 +9,7 @@
 			<Item Name="LocalizableStrings.addRecord_mu151wr_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_poxxqod_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.AreaCannotBeLess.Value" Value="Area cannot be less than 100 sq ft" />
+			<Item Name="LocalizableStrings.Button_rr80tox_caption.Value" Value="Actions" />
 			<Item Name="LocalizableStrings.Button_tcv3w6x_caption.Value" Value="Push me!" />
 			<Item Name="LocalizableStrings.ExpansionPanel_l5a833z_title.Value" Value="Realty Visit" />
 			<Item Name="LocalizableStrings.FutureDateWarning.Value" Value="Promotion date cannot be in past" />
@@ -18,6 +19,7 @@
 			<Item Name="LocalizableStrings.GridDetailRefreshBtn_5lwz93i_caption.Value" Value="Refresh" />
 			<Item Name="LocalizableStrings.GridDetailSearchFilter_0j6cng6_placeholder.Value" Value="Search" />
 			<Item Name="LocalizableStrings.GridDetailSettingsBtn_qnakz45_caption.Value" Value="Actions" />
+			<Item Name="LocalizableStrings.MenuItem_r7qpix1_caption.Value" Value="Calculate average price process" />
 			<Item Name="LocalizableStrings.MyLocString.Value" Value="Some localized text" />
 			<Item Name="LocalizableStrings.NumberInput_pbpht8x_label.Value" Value="Number" />
 			<Item Name="LocalizableStrings.Percent_label.Value" Value="Comm. percent" />

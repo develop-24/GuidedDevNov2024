@@ -1,0 +1,11 @@
+﻿{
+  "SqlScript": {
+    "UId": "16cd6967-1b9b-8990-2ea4-1546f1132f5e",
+    "Name": "EnableSysAdminRootTriggerPostgreSql",
+    "DBEngineType": 2,
+    "InstallType": 2,
+    "ModifiedOnUtc": "\/Date(1734384817000)\/",
+    "BackwardCompatibilityConfirmed": false,
+    "DependsOn": []
+  }
+}
