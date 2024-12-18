@@ -1,0 +1,38 @@
+﻿{
+  "PackageData": [
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "423b165f-9759-437b-b532-95ef1b78063b",
+          "Value": "8a0b8a2a-728e-43ac-935f-48b9c6946a31",
+          "DisplayValue": "Support Team"
+        },
+        {
+          "SchemaColumnUId": "a64eb826-4dc1-45fb-a5ac-d768275eb719",
+          "Value": "c95ac380-d6f6-4563-b28c-fbdc507663dc",
+          "DisplayValue": "Has Access To Secret Tab"
+        },
+        {
+          "SchemaColumnUId": "9928edec-4272-425a-93bb-48743fee4b04",
+          "Value": "\/Date(1734554339676+0200)\/"
+        },
+        {
+          "SchemaColumnUId": "9d032101-3db5-4bba-ab16-294104cd15ad",
+          "Value": 0
+        },
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "7f708da1-8d91-4b14-b48a-2946b72c8ca8"
+        },
+        {
+          "SchemaColumnUId": "e1f978af-3b07-4c9f-a422-c6170cd1b1a4",
+          "Value": true
+        },
+        {
+          "SchemaColumnUId": "e80190a5-03b2-4095-90f7-a193a960adee",
+          "Value": "\/Date(1734554339676+0200)\/"
+        }
+      ]
+    }
+  ]
+}

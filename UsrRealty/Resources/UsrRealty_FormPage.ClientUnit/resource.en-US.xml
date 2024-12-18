@@ -24,6 +24,8 @@
 			<Item Name="LocalizableStrings.NumberInput_pbpht8x_label.Value" Value="Number" />
 			<Item Name="LocalizableStrings.Percent_label.Value" Value="Comm. percent" />
 			<Item Name="LocalizableStrings.PriceCannotBeLess.Value" Value="Price cannot be less than 50, USD" />
+			<Item Name="LocalizableStrings.TabContainer_1vvh88s_caption.Value" Value="Secret Tab" />
+			<Item Name="Parameters.0698e13e-2759-b35c-2622-058ed027ef1c.Caption" Value="SecretTabVisible" />
 		</Items>
 	</Group>
 </Resources>

@@ -1,4 +1,4 @@
-define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEMA_ARGS*/()/**SCHEMA_ARGS*/ {
+define("UsrRealty_FormPage", /**SCHEMA_DEPS*/["@creatio-devkit/common", "RightUtilities"]/**SCHEMA_DEPS*/, function/**SCHEMA_ARGS*/(sdk, RightUtilities)/**SCHEMA_ARGS*/ {
 	return {
 		viewConfigDiff: /**SCHEMA_VIEW_CONFIG_DIFF*/[
 			{
@@ -214,6 +214,26 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 				"parentName": "SideAreaProfileContainer",
 				"propertyName": "items",
 				"index": 4
+			},
+			{
+				"operation": "insert",
+				"name": "SecretTabVisible",
+				"values": {
+					"layoutConfig": {
+						"column": 1,
+						"row": 6,
+						"colSpan": 1,
+						"rowSpan": 1
+					},
+					"type": "crt.Checkbox",
+					"label": "$Resources.Strings.PageParameters_UsrBooleanParameter1_r7szu24",
+					"labelPosition": "auto",
+					"control": "$PageParameters_UsrBooleanParameter1_r7szu24",
+					"visible": false
+				},
+				"parentName": "SideAreaProfileContainer",
+				"propertyName": "items",
+				"index": 5
 			},
 			{
 				"operation": "insert",
@@ -857,6 +877,40 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 				"parentName": "VisitsGridDetail",
 				"propertyName": "bulkActions",
 				"index": 2
+			},
+			{
+				"operation": "insert",
+				"name": "SecretTab",
+				"values": {
+					"type": "crt.TabContainer",
+					"items": [],
+					"caption": "#ResourceString(TabContainer_1vvh88s_caption)#",
+					"iconPosition": "only-text",
+					"visible": true
+				},
+				"parentName": "Tabs",
+				"propertyName": "items",
+				"index": 1
+			},
+			{
+				"operation": "insert",
+				"name": "GridContainer_d3v1yg8",
+				"values": {
+					"type": "crt.GridContainer",
+					"items": [],
+					"rows": "minmax(32px, max-content)",
+					"columns": [
+						"minmax(32px, 1fr)",
+						"minmax(32px, 1fr)"
+					],
+					"gap": {
+						"columnGap": "large",
+						"rowGap": 0
+					}
+				},
+				"parentName": "SecretTab",
+				"propertyName": "items",
+				"index": 0
 			}
 		]/**SCHEMA_VIEW_CONFIG_DIFF*/,
 		viewModelConfigDiff: /**SCHEMA_VIEW_MODEL_CONFIG_DIFF*/[
@@ -1015,6 +1069,11 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 								}
 							}
 						}
+					},
+					"PageParameters_UsrBooleanParameter1_r7szu24": {
+						"modelConfig": {
+							"path": "PageParameters.UsrSecretTabVisibleParameter"
+						}
 					}
 				}
 			},
@@ -1106,7 +1165,7 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
                   handler: async (request, next) => {
                       console.log("Button works...");
                       console.log(request);
-                      Terrasoft.showInformation("My button was pressed.");
+                      //Terrasoft.showInformation("My button was pressed.");
                       var price = await request.$context.PDS_UsrPrice_328dy2o;
                       console.log("Price = " + price);
                       request.$context.PDS_UsrArea_cr5a4p1 = price * 0.2;
@@ -1114,6 +1173,22 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
                       let s = await request.$context.Resources.Strings.MyLocString;
                     
                     console.log(s);
+
+                    var config = {
+    					
+                      operation: "HasAccessToSecretTab"
+    				
+                    };
+                   
+                    var result;
+    				
+                    RightUtilities.checkCanExecuteOperation(config, function (response) 
+                                                            
+                                                            {result = response; 
+                                                             
+                                                             request.$context.PageParameters_UsrBooleanParameter1_r7szu24 = response;} , request);
+                    
+                    console.log("result = " + result);
                       /* Call the next handler if it exists and return its result. */
                       return next?.handle(request);
 		

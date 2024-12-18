@@ -2,6 +2,7 @@
 <Resources Culture="en-US">
 	<Group Type="String">
 		<Items>
+			<Item Name="AddonConfig.Rules.4e415660-446a-572b-8562-dad767ccc86a.Caption" Value="Hide elements: Secret Tab" />
 			<Item Name="AddonConfig.Rules.ee90cb74-ea22-f3a6-812d-60df2c0c237e.Caption" Value="Show elements: Comment" />
 			<Item Name="Caption" Value="Realty form page (Business rules)" />
 		</Items>
