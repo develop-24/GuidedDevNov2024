@@ -19,6 +19,7 @@
 			<Item Name="LocalizableStrings.GridDetailRefreshBtn_5lwz93i_caption.Value" Value="Refresh" />
 			<Item Name="LocalizableStrings.GridDetailSearchFilter_0j6cng6_placeholder.Value" Value="Search" />
 			<Item Name="LocalizableStrings.GridDetailSettingsBtn_qnakz45_caption.Value" Value="Actions" />
+			<Item Name="LocalizableStrings.MenuItem_box9i9i_caption.Value" Value="Run max price calculation web service" />
 			<Item Name="LocalizableStrings.MenuItem_r7qpix1_caption.Value" Value="Calculate average price process" />
 			<Item Name="LocalizableStrings.MyLocString.Value" Value="Some localized text" />
 			<Item Name="LocalizableStrings.NumberInput_pbpht8x_label.Value" Value="Number" />

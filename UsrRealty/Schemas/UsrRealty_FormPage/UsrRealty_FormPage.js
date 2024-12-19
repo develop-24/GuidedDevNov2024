@@ -92,6 +92,22 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/["@creatio-devkit/common", "RightUt
 			},
 			{
 				"operation": "insert",
+				"name": "RunWebServiceMenuItem",
+				"values": {
+					"type": "crt.MenuItem",
+					"caption": "#ResourceString(MenuItem_box9i9i_caption)#",
+					"visible": true,
+					"clicked": {
+						"request": "usr.RunWebServiceRequest"
+					},
+					"icon": "bars-button-icon"
+				},
+				"parentName": "Button_rr80tox",
+				"propertyName": "menuItems",
+				"index": 1
+			},
+			{
+				"operation": "insert",
 				"name": "PushMeButton",
 				"values": {
 					"type": "crt.Button",
@@ -1174,6 +1190,14 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/["@creatio-devkit/common", "RightUt
                     
                     console.log(s);
 
+                    const sysSettingsService = new sdk.SysSettingsService();
+
+                    const minPrice = await sysSettingsService.getByCode('MinPriceToRequireRealtyComment');
+                    console.log("pricesetting");
+                    console.log(minPrice);
+                    console.log(minPrice.value);
+                    console.log(pricesetting);
+
                     var config = {
     					
                       operation: "HasAccessToSecretTab"
@@ -1218,9 +1242,51 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/["@creatio-devkit/common", "RightUt
 			  
               /* Call the next handler if it exists and return its result. */
 			  
-              return next?.handle(request);
-	  }
-          }
+              return next?.handle(request);}
+	  },
+        {
+				request: "usr.RunWebServiceRequest",
+				/* Implementation of the custom query handler. */
+				handler: async (request, next) => {
+					console.log("Run web service call works...");
+
+					// get id from type lookup type object
+					var typeObject = await request.$context.PDS_UsrType_lmm35r5;
+					var typeId = "";
+					if (typeObject) {
+						typeId = typeObject.value;
+					}
+
+					// get id from type lookup offer type object
+					var offerTypeObject = await request.$context.PDS_UsrOfferType_qc997mm;
+					var offerTypeId = "";
+					if (offerTypeObject) {
+						offerTypeId = offerTypeObject.value;
+					}
+                    
+                  /* Create an instance of the HTTP client from @creatio-devkit/common. */
+					const httpClientService = new sdk.HttpClientService();
+
+					/* Specify the URL to run web service method. */
+					const baseUrl = Terrasoft.utils.uri.getConfigurationWebServiceBaseUrl();
+					const transferName = "rest";
+					const serviceName = "RealtyService";
+					const methodName = "GetMaxPriceByTypeId";
+					const endpoint = Terrasoft.combinePath(baseUrl, transferName, serviceName, methodName);
+        //const endpoint = "http://localhost/D1_Studio/0/rest/RealtyService/GetMaxPriceByTypeId";
+					/* Send a POST HTTP request. The HTTP client converts the response body from JSON to a JS object automatically. */
+					var params = {
+						realtyTypeId: typeId,
+						realtyOfferTypeId: offerTypeId
+					};
+					const response = await httpClientService.post(endpoint, params);
+					
+					console.log("response max price = " + response.body.GetMaxPriceByTypeIdResult);
+					
+					/* Call the next handler if it exists and return its result. */
+					return next?.handle(request);
+				}
+			}                                                                                                                                                                       
 ]/**SCHEMA_HANDLERS*/,
 		converters: /**SCHEMA_CONVERTERS*/{}/**SCHEMA_CONVERTERS*/,
 		validators: /**SCHEMA_VALIDATORS*/{

@@ -3,6 +3,7 @@
 	<Group Type="String">
 		<Items>
 			<Item Name="AddonConfig.Rules.283ad300-4319-5ddf-7e33-3367f6f37086.Caption" Value="Apply filter: City" />
+			<Item Name="AddonConfig.Rules.39c7a4b4-df64-a630-ce97-0f83ce4f908d.Caption" Value="Make elements required: Comment" />
 			<Item Name="AddonConfig.Rules.52d71b4b-8706-6973-7d25-f5368e34e754.Caption" Value="ChildRule-283ad300-4319-5ddf-7e33-3367f6f37086-ClearValue" />
 			<Item Name="AddonConfig.Rules.e61a8ef1-0cda-c42c-d9b8-2e25d6e69b33.Caption" Value="Apply static filter: Manager" />
 			<Item Name="AddonConfig.Rules.f017377e-5980-b370-0c7c-fc2dec2c2af2.Caption" Value="ChildRule-283ad300-4319-5ddf-7e33-3367f6f37086-PopulateValue" />

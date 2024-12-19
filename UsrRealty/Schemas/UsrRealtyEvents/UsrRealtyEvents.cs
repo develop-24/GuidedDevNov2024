@@ -2,6 +2,8 @@ namespace Terrasoft.Configuration
 {
     using System;
     using Terrasoft.Common;
+    using Terrasoft.Core;
+    using Terrasoft.Core.Configuration;
     using Terrasoft.Core.Entities;
     using Terrasoft.Core.Entities.Events;
     [EntityEventListener(SchemaName = "UsrRealty")]
@@ -12,14 +14,15 @@ namespace Terrasoft.Configuration
             base.OnSaving(sender, e);
             Entity realty = (Entity)sender;
             decimal price = realty.GetTypedColumnValue<decimal>("UsrPrice");
-            if (price > 1000000000)
+            var sysSettingMinPrice = SysSettings.GetValue(realty.UserConnection, "PriceMaxValue");
+            if (price > (decimal) sysSettingMinPrice)
             {
                 e.IsCanceled = true;
 
                 string messageTemplate = new LocalizableString(realty.UserConnection.ResourceStorage,
                     "UsrRealtyEvents", "LocalizableStrings.ValueIsTooBig.Value").ToString();
 
-                string message = string.Format(messageTemplate, "1.0B$");
+                string message = string.Format(messageTemplate, sysSettingMinPrice.ToString());
                 throw new Exception(message);
             }
         }
