@@ -12,6 +12,7 @@
 			<Item Name="LocalizableStrings.Button_rr80tox_caption.Value" Value="Actions" />
 			<Item Name="LocalizableStrings.Button_tcv3w6x_caption.Value" Value="Push me!" />
 			<Item Name="LocalizableStrings.ExpansionPanel_l5a833z_title.Value" Value="Realty Visit" />
+			<Item Name="LocalizableStrings.FieldIsRequired.Value" Value="This field is required." />
 			<Item Name="LocalizableStrings.FutureDateWarning.Value" Value="Promotion date cannot be in past" />
 			<Item Name="LocalizableStrings.GridDetailAddBtn_z2gw8ij_caption.Value" Value="New" />
 			<Item Name="LocalizableStrings.GridDetailExportDataBtn_iac97hs_caption.Value" Value="Export to Excel" />
@@ -26,6 +27,7 @@
 			<Item Name="LocalizableStrings.Percent_label.Value" Value="Comm. percent" />
 			<Item Name="LocalizableStrings.PriceCannotBeLess.Value" Value="Price cannot be less than 50, USD" />
 			<Item Name="LocalizableStrings.TabContainer_1vvh88s_caption.Value" Value="Secret Tab" />
+			<Item Name="LocalizableStrings.ValueGreaterThan0.Value" Value="Value should be greater than zero." />
 			<Item Name="Parameters.0698e13e-2759-b35c-2622-058ed027ef1c.Caption" Value="SecretTabVisible" />
 		</Items>
 	</Group>

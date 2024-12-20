@@ -16,11 +16,8 @@
 			<Item Name="BaseElements.ConditionalSequenceFlow1.Caption" Value="N &gt; 0" />
 			<Item Name="BaseElements.FormulaTask1.Caption" Value="N = N - 1" />
 			<Item Name="BaseElements.FormulaTask2.Caption" Value="set Parent Realty Id from insert signal" />
-			<Item Name="BaseElements.FormulaTask3.Caption" Value="set Parent Realty Id from modified signal" />
 			<Item Name="BaseElements.StartSignal1.Caption" Value="Realty added signal" />
 			<Item Name="BaseElements.StartSignal1.Parameters.RecordId.Caption" Value="Unique identifier of record" />
-			<Item Name="BaseElements.StartSignal2.Caption" Value="Realty modified signal" />
-			<Item Name="BaseElements.StartSignal2.Parameters.RecordId.Caption" Value="Unique identifier of record" />
 			<Item Name="BaseElements.TerminateEvent1.Caption" Value="Finish" />
 			<Item Name="Caption" Value="Auto add realty visits" />
 			<Item Name="LaneSets.LaneSet1.Caption" Value="LaneSet 1" />

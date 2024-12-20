@@ -949,8 +949,8 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/["@creatio-devkit/common", "RightUt
 							"MySuperValidator": {
 								"type": "usr.DGValidator",
 								"params": {
-									"minValue": 50,
-									"message": "#ResourceString(PriceCannotBeLess)#"
+									"minValue": 0,
+									"message": "#ResourceString(ValueGreaterThan0)#"
 								}
 							}
 						}
@@ -963,8 +963,8 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/["@creatio-devkit/common", "RightUt
 							"MySuperValidator": {
 								"type": "usr.DGValidator",
 								"params": {
-									"minValue": 100,
-									"message": "#ResourceString(AreaCannotBeLess)#"
+									"minValue": 0,
+									"message": "#ResourceString(ValueGreaterThan0)#"
 								}
 							}
 						}
@@ -982,7 +982,14 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/["@creatio-devkit/common", "RightUt
 					"PDS_UsrComment_vmayuq6": {
 						"modelConfig": {
 							"path": "PDS.UsrComment"
-						}
+						},
+                     "validators": {
+                             
+                       "required": {
+                        
+                         "type": "crt.Required"
+                    }
+                }
 					},
 					"PDS_UsrManager_m10uo72": {
 						"modelConfig": {
@@ -1221,6 +1228,13 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/["@creatio-devkit/common", "RightUt
 	
           },
           {
+              save: function(config){
+                config = config || {};
+                config.isSilent = true;
+                this.callParent([config]);
+              }
+          },
+          {
              request: "crt.HandleViewModelAttributeChangeRequest",
 	  /* The custom implementation of the system query handler. */
 	  
@@ -1244,6 +1258,45 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/["@creatio-devkit/common", "RightUt
 			  
               return next?.handle(request);}
 	  },
+          {
+        request: "crt.HandleViewModelAttributeChangeRequest",
+        handler: async (request, next) => {
+           
+            if (request.attributeName === 'PDS_UsrPrice_328dy2o') {
+                
+              const priceValue = await request.$context.PDS_UsrPrice_328dy2o;
+                
+              const sysSettingsService = new sdk.SysSettingsService();
+                
+              const minPriceSetting = await sysSettingsService.getByCode('MinPriceToRequireRealtyComment');
+                
+              const minPriceValue = minPriceSetting.value;
+                
+              console.log("Price",priceValue);
+                    
+              console.log("Sys",minPriceValue);
+               
+              if (priceValue >minPriceValue) {
+                    
+                request.$context.enableAttributeValidator('PDS_UsrComment_vmayuq6', 'required');
+                  
+                console.log("required");
+                
+              } else {
+                    
+                request.$context.disableAttributeValidator('PDS_UsrComment_vmayuq6', 'required');
+                  
+                console.log("not required");
+               
+              }
+            
+            }
+            
+            return next?.handle(request);
+       
+          }
+    
+          },
         {
 				request: "usr.RunWebServiceRequest",
 				/* Implementation of the custom query handler. */
@@ -1353,7 +1406,7 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/["@creatio-devkit/common", "RightUt
 					return function (control) {
 						let value = control.value;
 						let minValue = config.minValue;
-						let valueIsCorrect = value >= minValue;
+						let valueIsCorrect = value > minValue;
 						var result;
 						if (valueIsCorrect) {
 							result = null;
